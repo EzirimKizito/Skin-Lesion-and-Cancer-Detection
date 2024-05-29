@@ -45,7 +45,8 @@ if uploaded_file is not None:
     # Display prediction buttons
     if st.sidebar.button('Predict Lesion Class'):
         prediction = lesion_model.predict(img_array)
-        predicted_class = max(lesion_classes, key=lambda k: prediction[0][lesion_classes.keys().index(k)])
+        predicted_index = np.argmax(prediction)
+        predicted_class = list(lesion_classes.keys())[predicted_index]
         st.sidebar.write(f"Predicted Lesion Class: {predicted_class}")
         st.sidebar.write(f"{predicted_class}: {lesion_classes[predicted_class]}")
 
