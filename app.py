@@ -4,8 +4,8 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
 
 # Load the models
-lesion_model_path = '/content/drive/MyDrive/Dataset/Skin_Lesion_Datasets/All/Deployments/Model_for_lesion.h5'
-cancer_model_path = '/content/drive/MyDrive/Dataset/Skin_Lesion_Datasets/All/Deployments/Model_for_cancer.h5'
+lesion_model_path = 'Model_for_lesion.h5'
+cancer_model_path = 'Model_for_cancer.h5'
 
 lesion_model = load_model(lesion_model_path)
 cancer_model = load_model(cancer_model_path)
