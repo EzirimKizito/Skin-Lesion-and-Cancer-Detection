@@ -38,21 +38,27 @@ if uploaded_file is not None:
     img_array = np.expand_dims(img_array, axis=0)  # Create batch dimension
     img_array = img_array / 255.0  # Normalize
 
-    st.image(image, caption='Uploaded Image.', use_column_width=False, width=200)
+    # Create two columns
+    col1, col2 = st.columns([1, 3])
 
-    st.sidebar.write("")
+    with col1:
+        st.sidebar.write("")
+    
+    with col2:
+        st.image(image, caption='Uploaded Image.', use_column_width=False, width=200)
+        st.write("")
 
-    # Display prediction buttons
-    if st.sidebar.button('Predict Lesion Class'):
-        prediction = lesion_model.predict(img_array)
-        predicted_index = np.argmax(prediction)
-        predicted_class = list(lesion_classes.keys())[predicted_index]
-        st.sidebar.write(f"Predicted Lesion Class: {predicted_class}")
-        st.sidebar.write(f"{predicted_class}: {lesion_classes[predicted_class]}")
+        # Display prediction buttons
+        if st.button('Predict Lesion Class'):
+            prediction = lesion_model.predict(img_array)
+            predicted_index = np.argmax(prediction)
+            predicted_class = list(lesion_classes.keys())[predicted_index]
+            st.write(f"Predicted Lesion Class: {predicted_class}")
+            st.write(f"{predicted_class}: {lesion_classes[predicted_class]}")
 
-    if st.sidebar.button('Diagnose'):
-        prediction = cancer_model.predict(img_array)
-        predicted_class = cancer_classes[np.argmax(prediction)]
-        st.sidebar.write(f"Diagnosis: {predicted_class}")
+        if st.button('Diagnose'):
+            prediction = cancer_model.predict(img_array)
+            predicted_class = cancer_classes[np.argmax(prediction)]
+            st.write(f"Diagnosis: {predicted_class}")
 
 st.sidebar.write("Upload an image and click on the respective button to get the prediction.")
