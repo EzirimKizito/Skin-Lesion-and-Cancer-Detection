@@ -1,5 +1,3 @@
-
-```markdown
 # Skin Lesion Diagnosis and Classification System
 
 ## Overview
