@@ -26,7 +26,7 @@ cancer_classes = ['Non-Cancerous', 'Cancerous']
 
 # Set up the app layout
 st.title('Skin Lesion Diagnosis App')
-st.write("By Mariam Makasaa")
+# st.write("By Mariam Makasaa")
 
 st.sidebar.header('1. Input Data')
 uploaded_file = st.sidebar.file_uploader("Choose a skin lesion image...", type=["jpg", "png"])
