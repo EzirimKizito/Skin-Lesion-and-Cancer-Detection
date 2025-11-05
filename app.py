@@ -5,7 +5,7 @@ import numpy as np
 
 # Class labels for lesion model
 lesion_classes = {
-    'AKIEC': 'Actinic Keratoses and Intraepithelial Carcinoma / Bowen's Disease',
+    'AKIEC': "Actinic Keratoses and Intraepithelial Carcinoma / Bowen's Disease",
     'BCC': 'Basal Cell Carcinoma',
     'BKL': 'Benign Keratosis-like Lesions',
     'DF': 'Dermatofibroma',
